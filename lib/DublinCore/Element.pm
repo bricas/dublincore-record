@@ -6,11 +6,11 @@ DublinCore::Element - Class for representing a Dublin Core element
 
 =head1 SYNOPSIS
 
-	my $element = DublinCore::Element->new( \%info );
-	print "content:   ", $element->content(), "\n";
-	print "qualifier: ", $element->qualifier(), "\n";
-	print "language:  ", $element->language(), "\n";
-	print "scheme:    ", $element->scheme(), "\n";
+    my $element = DublinCore::Element->new( \%info );
+    print "content:   ", $element->content(), "\n";
+    print "qualifier: ", $element->qualifier(), "\n";
+    print "language:  ", $element->language(), "\n";
+    print "scheme:    ", $element->scheme(), "\n";
 
 =head1 DESCRIPTION
 
@@ -27,7 +27,7 @@ use base qw( Class::Accessor );
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 __PACKAGE__->mk_accessors( qw( name qualifier content language scheme is_empty ) );
 
@@ -40,14 +40,14 @@ The constructor. Take a hashref of input arguments.
 =cut
 
 sub new {
-	my $class = shift;
-	my $self  = $class->SUPER::new( @_ );
+    my $class = shift;
+    my $self  = $class->SUPER::new( @_ );
 
-	bless $self, $class;
+    bless $self, $class;
 
-	$self->is_empty( 1 );
+    $self->is_empty( 1 );
 
-	return $self;
+    return $self;
 }
 
 =head2 content()
@@ -84,9 +84,9 @@ using DublinCore::Record's element() method.
 
 To see if the record has an creator elements:
 
-	if( $record->element( 'creator' )->is_empty ) {
-		# no creators
-	}
+    if( $record->element( 'creator' )->is_empty ) {
+        # no creators
+    }
 
 
 =head2 set()
@@ -97,9 +97,9 @@ is_empty flag.
 =cut
 
 sub set {
-        my $self = shift;
-	$self->SUPER::set( 'is_empty' => 0 ) if $self->is_empty;
-        $self->SUPER::set( @_ );
+    my $self = shift;
+    $self->SUPER::set( 'is_empty' => 0 ) if $self->is_empty;
+    $self->SUPER::set( @_ );
 }
 
 =head1 SEE ALSO
@@ -122,7 +122,7 @@ sub set {
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2005 by Ed Summers, Brian Cassidy
+Copyright 2007 by Ed Summers, Brian Cassidy
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
